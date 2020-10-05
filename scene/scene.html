@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>panorama</title>
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <style>
+        #jump{color:green;text-decoration: overline;}
+        #button1{color:red}
+    </style>
+</head>
+<body>
+<script src="scene.js"></script>
+<a-scene>
+    <a-box id='left' color="#00FFFF" position="-3 -1 0" rotation="0 0 0" scale="0.2 0.2 0.2"
+           scale-on-mouseenter="to: 0.3 0.3 0.3" jumpleft>
+    </a-box>
+    <a-box id='right' color="#00FFFF" position="3 -1 0" rotation="0 0 0" scale="0.2 0.2 0.2"
+           scale-on-mouseenter="to: 0.3 0.3 0.3" jumpright>
+    </a-box>
+    <a-box id='forward' color="#00FFFF" position="0 -1 -4" rotation="0 0 0" scale="0.2 0.2 0.2"
+           scale-on-mouseenter="to: 0.3 0.3 0.3" jumpforward>
+    </a-box>
+    <a-box id='back' color="#00FFFF" position="0 -1 4" rotation="0 0 0" scale="0.2 0.2 0.2"
+           scale-on-mouseenter="to: 0.3 0.3 0.3" jumpback>
+    </a-box>
+    <a-sky id="panorama" src="../img/1.JPG" rotation="0 -90 0"></a-sky>
+    <a-light type="ambient" color="#445451"></a-light>
+    <a-light type="point" intensity="2" position="2 4 4"></a-light>
+    <a-camera>
+        <a-cursor></a-cursor>
+    </a-camera>
+</a-scene>
+
+</body>
+</html>
