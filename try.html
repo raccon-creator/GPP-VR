@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>aframe.js 结合 gamepad api 游戏手柄摇杆移动摄像机实验</title>
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+</head>
+<body>
+
+<script>
+
+    //摄像机的初始位置
+    var cameraX=0;
+    var cameraY=0;
+    var cameraZ=5;
+
+    //创建移动摄像机的组件
+    AFRAME.registerComponent("move-camera", {
+
+        tick: function () {
+            //通过gamepad api获取游戏手柄数据
+            var gamepads = navigator.getGamepads();
+
+            for(var i=0;i<gamepads.length;i++){
+                var pad=gamepads[i];
+                //获取游戏手柄摇杆拨动数值
+                var a0=pad.axes[0];
+                var a1=pad.axes[1];
+                //限定最大最小值在-1到1之间避免位移过于剧烈
+                if(a0>1){
+                    a0=1;
+                }
+                if(a0<-1){
+                    a0=-1;
+                }
+
+                if(a1>1){
+                    a1=1;
+                }
+                if(a1<-1){
+                    a1=-1;
+                }
+                //将获得的值作为位移
+                cameraX+=a0;
+                cameraZ+=a1;
+                //设置摄像机的位置
+                this.el.setAttribute('position',{x:cameraX,y:cameraY,z:cameraZ});
+            }
+        }
+
+    });
+
+</script>
+
+
+<a-scene>
+
+    <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+    <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+    <a-sky color="#ECECEC"></a-sky>
+
+    <!--摄像机上植入move-camera组件-->
+    <a-entity position="0 0 5" move-camera>
+        <a-camera></a-camera>
+    </a-entity>
+
+
+</a-scene>
+</body>
+</html>

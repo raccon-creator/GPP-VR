@@ -12,21 +12,44 @@
 <body>
 <script src="scene.js"></script>
 <a-scene>
+    <a-assets>
+        <img id="p1" src="../img2/image1.jpg">
+        <img id="p2" src="../img2/image2.jpg">
+        <img id="p3" src="../img2/image3.jpg">
+        <img id="p4" src="../img2/image4.jpg">
+        <img id="p5" src="../img2/image5.jpg">
+        <img id="p6" src="../img2/image6.jpg">
+        <img id="p7" src="../img2/image7.jpg">
+        <img id="p8" src="../img2/image8.jpg">
+        <img id="p9" src="../img2/image9.jpg">
+        <img id="p10" src="../img2/image10.jpg">
+        <a-asset-item id="controller-obj" src="vr_controller_vive.obj"></a-asset-item>
+        <a-asset-item id="controller-mtl" src="vr_controller_vive.mtl"></a-asset-item>
+        <a-asset-item id="controller-gltf" src="focus-controller.gltf"></a-asset-item>
+    </a-assets>
+    <!--
     <a-box id='left' color="#00FFFF" position="-3 -1 0" rotation="0 0 0" scale="0.2 0.2 0.2"
            scale-on-mouseenter="to: 0.3 0.3 0.3" jumpleft>
     </a-box>
     <a-box id='right' color="#00FFFF" position="3 -1 0" rotation="0 0 0" scale="0.2 0.2 0.2"
            scale-on-mouseenter="to: 0.3 0.3 0.3" jumpright>
     </a-box>
+
     <a-box id='forward' color="#00FFFF" position="0 -1 -4" rotation="0 0 0" scale="0.2 0.2 0.2"
            scale-on-mouseenter="to: 0.3 0.3 0.3" jumpforward>
     </a-box>
     <a-box id='back' color="#00FFFF" position="0 -1 4" rotation="0 0 0" scale="0.2 0.2 0.2"
            scale-on-mouseenter="to: 0.3 0.3 0.3" jumpback>
     </a-box>
-    <a-sky id="panorama" src="../img/1.JPG" rotation="0 -90 0"></a-sky>
+    -->
+    <a-sky id="panorama" src="#p1" rotation="0 -90 0"></a-sky>
     <a-light type="ambient" color="#445451"></a-light>
     <a-light type="point" intensity="2" position="2 4 4"></a-light>
+    <a-obj-model id="controller" vive-controls="hand: left" src="#controller-obj"  mtl="#controller-mtl" scale="100 100 100" position="-30 -10 -30"></a-obj-model>
+    <a-obj-model id="controller" vive-controls="hand: right" src="#controller-obj" mtl="#controller-mtl" scale="100 100 100" position="30 -10 -30"></a-obj-model>
+    <!--
+    <a-entity gltf-model="#controller-gltf" scale="10 10 10" positon="3 -1 0"></a-entity>
+    -->
     <a-camera>
         <a-cursor></a-cursor>
     </a-camera>

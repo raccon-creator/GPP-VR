@@ -1,9 +1,10 @@
 #body{
-    background:url(starrySky2.jpg) no-repeat center 0};
+    background:url('starrySky2.jpg') no-repeat center 0 ;
     margin: 0;
     text-align:center;
     padding: 0;
 }
+
 #container{
     background-color:#4EFEB3;
     height: 1000px;
