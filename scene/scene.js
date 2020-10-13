@@ -29,12 +29,14 @@ AFRAME.registerComponent('jumpleft', {
 });
 AFRAME.registerComponent('jumpright', {
     init: function () {
+        console.log(1024)
         this.el.addEventListener('triggerdown', function () {
+            console.log(2048)
             var sceneEl = document.querySelector('a-scene');
             if(num<10){
                 num=num+1;
                 console.log(num);
-                sceneEl.querySelector('#panorama').setAttribute('src','#'+'p'+num);
+                sceneEl.querySelector('#vive').setAttribute('src','#'+'p'+num);
             }
         });
     }
@@ -63,4 +65,6 @@ AFRAME.registerComponent('jumpback', {
         });
     }
 });
+
+
 

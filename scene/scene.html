@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>panorama</title>
-    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <style>
         #jump{color:green;text-decoration: overline;}
         #button1{color:red}
@@ -25,7 +25,7 @@
         <img id="p10" src="../img2/image10.jpg">
         <a-asset-item id="controller-obj" src="vr_controller_vive.obj"></a-asset-item>
         <a-asset-item id="controller-mtl" src="vr_controller_vive.mtl"></a-asset-item>
-        <a-asset-item id="controller-gltf" src="focus-controller.gltf"></a-asset-item>
+        <a-asset-item id="go" src="oculus-go-controller.gltf"></a-asset-item>
     </a-assets>
     <!--
     <a-box id='left' color="#00FFFF" position="-3 -1 0" rotation="0 0 0" scale="0.2 0.2 0.2"
@@ -45,11 +45,10 @@
     <a-sky id="panorama" src="#p1" rotation="0 -90 0"></a-sky>
     <a-light type="ambient" color="#445451"></a-light>
     <a-light type="point" intensity="2" position="2 4 4"></a-light>
-    <a-obj-model id="controller" vive-controls="hand: left" src="#controller-obj"  mtl="#controller-mtl" scale="100 100 100" position="-30 -10 -30"></a-obj-model>
-    <a-obj-model id="controller" vive-controls="hand: right" src="#controller-obj" mtl="#controller-mtl" scale="100 100 100" position="30 -10 -30"></a-obj-model>
-    <!--
-    <a-entity gltf-model="#controller-gltf" scale="10 10 10" positon="3 -1 0"></a-entity>
-    -->
+    <a-obj-model  oculus-go-controls src="#controller-obj"  mtl="#controller-mtl" scale="100 100 100" position="-30 -10 -30"></a-obj-model>
+    <a-entity oculus-go-controls geometry="primitive: box" material="color: red"  scale="10 10 10" position="0 -10 -30" jumpright></a-entity>
+    <a-entity id="vive" vive-controls="hand: right" geometry="primitive: box" material="color: blue"  scale="10 10 10" position="30 -10 -30" jumpright></a-entity>
+
     <a-camera>
         <a-cursor></a-cursor>
     </a-camera>
